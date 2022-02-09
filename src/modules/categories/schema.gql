@@ -1,0 +1,25 @@
+type Query {
+    categoryes(
+        search:String
+    ):[Categoryes!]!
+}
+
+type Mutation{
+    add_category(
+        category_name:String!
+    ):Response!
+    delete_category(
+        category_id:ID
+        category_name:String
+    ):Response!
+    update_category(
+        category_id:ID!
+        category_name:String!
+    ):Response!
+}
+
+type Categoryes{
+    category_id:ID!
+    category_name:String!
+}
+

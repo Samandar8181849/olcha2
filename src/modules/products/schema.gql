@@ -1,0 +1,47 @@
+input Pagination{
+    page:Int = 1
+    limit:Int = 1
+}
+type Query {
+    products(
+        pagination:Pagination={}
+        search:String
+        product_id:ID
+    ):[Products!]!
+}
+
+scalar Upload
+
+type Mutation{
+    add_product(
+        category_id:ID!
+        product_name:String!
+        product_price:Int!
+        product_short_desc:String!
+        product_long_desc:String!
+        picture:Upload!
+    ):Response!
+    delete_product(
+        product_id:ID!
+    ):Response!
+    update_product(
+        category_id:ID
+        product_name:String
+        product_price:Int
+        product_short_desc:String
+        product_long_desc:String
+        picture:Upload
+        product_id:ID!
+    ):Response!
+}
+
+type Products{
+    product_id:ID!
+    category_id:ID!
+    product_name:String!
+    product_price:Int!
+    product_short_desc:String!
+    product_long_desc:String!
+    picture:String!
+}
+

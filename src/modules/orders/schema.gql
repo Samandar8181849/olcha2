@@ -1,0 +1,19 @@
+type Query {
+    orders(user_id:ID):[Orders!]!
+}
+
+type Mutation{
+    add_order(
+        product_id:ID!
+        is_paid:Boolean!
+        price:String!
+    ):Response!
+}
+
+type Orders{
+    order_id:ID!
+    user_id:ID!
+    product_id:Any!
+    total_price:Int!
+    is_paid:Boolean!
+}
